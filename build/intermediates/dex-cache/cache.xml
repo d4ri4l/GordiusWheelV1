@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_b996c49020ee6f18de7e776c40f94c6d6556a9b8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="12d575c5bf044a79a8cf06c43bccb8980288a696">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_f25b42aefd77b9abc7fa5045e8b9b558270ce629\classes.dex" />
+    </item>
+
+</items>
