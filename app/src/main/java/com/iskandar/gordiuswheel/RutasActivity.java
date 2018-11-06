@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -20,6 +21,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
+import com.google.maps.android.geojson.GeoJsonFeature;
+import com.google.maps.android.geojson.GeoJsonLayer;
 import com.google.maps.android.kml.KmlLayer;
 
 import org.json.JSONArray;
@@ -45,8 +48,13 @@ public class RutasActivity extends FragmentActivity implements OnMapReadyCallbac
 
     RequestQueue rq;
     JsonRequest jrq;
+    GeoJsonLayer layer;
+
 
     public int x=0, i=1, ii=0;
+
+    public RutasActivity() throws IOException, JSONException {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +102,21 @@ public class RutasActivity extends FragmentActivity implements OnMapReadyCallbac
         CameraUpdate update = CameraUpdateFactory.newLatLng(position);
         CameraUpdate zoom = CameraUpdateFactory.zoomTo(12);
 
+        try {
+            layer = new GeoJsonLayer(mMap, R.raw.r1, getApplicationContext());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        layer.addLayerToMap();
+        layer.setOnFeatureClickListener(new GeoJsonLayer.GeoJsonOnFeatureClickListener() {
+            @Override
+            public void onFeatureClick(GeoJsonFeature geoJsonFeature) {
+                Toast.makeText(RutasActivity.this, "Eirmgv", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         mMap.moveCamera(update);
         mMap.animateCamera(zoom);
         //retrieveFileFromResource();
@@ -101,8 +124,7 @@ public class RutasActivity extends FragmentActivity implements OnMapReadyCallbac
 
         for(i=1;i<100;i++)
         {
-            etName(i);
-
+            //etName(i);
         }
     }
 

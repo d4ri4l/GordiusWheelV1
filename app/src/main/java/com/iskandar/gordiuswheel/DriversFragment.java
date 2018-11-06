@@ -3,10 +3,14 @@ package com.iskandar.gordiuswheel;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.InputFilter;
+import android.text.InputType;
+import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TableLayout;
@@ -60,6 +64,8 @@ public class DriversFragment extends Fragment implements Response.Listener<JSONO
     private String name;
     private String LastN;
 
+    private StringBuilder allowedChars = new StringBuilder("abcdefghijklmnopqrstuvwxyz");
+
     public String[]data;
 
     public int n=1;
@@ -102,13 +108,71 @@ public class DriversFragment extends Fragment implements Response.Listener<JSONO
         tableDynamic.addHeader(header);
         tableDynamic.backgroundHeader(Color.rgb(11,0,151));
 
+        if(rbID.isChecked()){
+            etParam.setInputType(InputType.TYPE_CLASS_NUMBER);
+        }
+        if(rbLastN.isChecked()){
+            etParam.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
+            //etParam.setFilters(new InputFilter[] { filter });
+        }
+        if(rbName.isChecked()){
+            etParam.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
+            //etParam.setFilters(new InputFilter[] { filter });
+        }
+
         btnSearch.setOnClickListener(new View.OnClickListener() { // hago clic en el botón
 
             @Override
             public void onClick(View v) {
                 RecuperarDatos();
-
             }
+        });
+        rbID.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(rbID.isChecked()){
+                    etParam.setInputType(InputType.TYPE_CLASS_NUMBER);
+                }
+                if(rbLastN.isChecked()){
+                    etParam.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
+                    //etParam.setFilters(new InputFilter[] { filter });
+                }
+                if(rbName.isChecked()){
+                    etParam.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
+                    //etParam.setFilters(new InputFilter[] { filter });
+                }
+            }
+        });
+        rbName.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(rbID.isChecked()){
+                    etParam.setInputType(InputType.TYPE_CLASS_NUMBER);
+                }
+                if(rbLastN.isChecked()){
+                    etParam.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
+                    //etParam.setFilters(new InputFilter[] { filter });
+                }
+                if(rbName.isChecked()){
+                    etParam.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
+                    //etParam.setFilters(new InputFilter[] { filter });
+                }
+            }
+        });
+        rbLastN.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(rbID.isChecked()){
+                    //etParam.setFilters(new InputFilter[] { filter });
+                }
+                if(rbLastN.isChecked()){
+                    etParam.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
+                    //etParam.setFilters(new InputFilter[] { filter });
+                }
+                if(rbName.isChecked()){
+                    etParam.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
+                    //etParam.setFilters(new InputFilter[] { filter });
+                }            }
         });
 
         return vista;
@@ -120,6 +184,17 @@ public class DriversFragment extends Fragment implements Response.Listener<JSONO
 
         return rows;
     }
+
+    public static InputFilter filter = new InputFilter() {
+        @Override
+        public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+            String blockCharacterSet = "1234567890!@#$%^&*()_-=+{[}]|;:.>?/<,`~";
+            if (source != null && blockCharacterSet.contains(("" + source))) {
+                return "";
+            }
+            return null;
+        }
+    };
 
 
     @Override
@@ -151,8 +226,6 @@ public class DriversFragment extends Fragment implements Response.Listener<JSONO
     private void RecuperarDatos(){
 
         String url="https://gordiuswheelyae.000webhostapp.com/Drivers.php?param="+etParam.getText().toString();
-
-        //String url="https://semilio9818.000webhostapp.com/sesion.php?email="+BoxUser.getText().toString()+"&pass="+BoxPass.getText().toString();
 
         jrq = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         rq.add(jrq);

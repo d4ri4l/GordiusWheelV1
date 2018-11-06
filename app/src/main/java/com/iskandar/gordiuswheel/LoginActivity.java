@@ -1,8 +1,8 @@
 package com.iskandar.gordiuswheel;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,8 +20,6 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import static java.security.AccessController.getContext;
 
 public class LoginActivity extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
 
@@ -94,8 +92,6 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
     private void IniciarSesion(){
 
         String url="https://gordiuswheelyae.000webhostapp.com/login.php?user="+BoxUser.getText().toString()+"&pwd="+BoxPass.getText().toString();
-
-        //String url="https://semilio9818.000webhostapp.com/sesion.php?email="+BoxUser.getText().toString()+"&pass="+BoxPass.getText().toString();
 
         jrq = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         rq.add(jrq);
