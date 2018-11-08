@@ -1,10 +1,9 @@
 package com.iskandar.gordiuswheel;
 
-import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -19,10 +18,12 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.maps.android.geojson.GeoJsonFeature;
 import com.google.maps.android.geojson.GeoJsonLayer;
+import com.google.maps.android.geojson.GeoJsonLineStringStyle;
+import com.google.maps.android.geojson.GeoJsonPointStyle;
 import com.google.maps.android.kml.KmlLayer;
 
 import org.json.JSONArray;
@@ -80,20 +81,6 @@ public class RutasActivity extends FragmentActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        try {
-            // Customise the styling of the base map using a JSON object defined
-            // in a raw resource file.
-            boolean success = googleMap.setMapStyle(
-                    MapStyleOptions.loadRawResourceStyle(
-                            this, R.raw.mapstyle2));
-
-            if (!success) {
-                Log.e(TAG, "Style parsing failed.");
-            }
-        } catch (Resources.NotFoundException e) {
-            Log.e(TAG, "Can't find style. Error: ", e);
-        }
-
         rq = Volley.newRequestQueue(this);
 
         // Add a marker in Sydney and move the camera
@@ -103,17 +90,17 @@ public class RutasActivity extends FragmentActivity implements OnMapReadyCallbac
         CameraUpdate zoom = CameraUpdateFactory.zoomTo(12);
 
         try {
-            layer = new GeoJsonLayer(mMap, R.raw.r1, getApplicationContext());
+            layer = new GeoJsonLayer(mMap, R.raw.map, getApplicationContext());
+            addColorsToMarkers(layer);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        layer.addLayerToMap();
         layer.setOnFeatureClickListener(new GeoJsonLayer.GeoJsonOnFeatureClickListener() {
             @Override
             public void onFeatureClick(GeoJsonFeature geoJsonFeature) {
-                Toast.makeText(RutasActivity.this, "Eirmgv", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RutasActivity.this, "Ruta Seleccionada: "+geoJsonFeature.getProperty("Name"), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -207,6 +194,45 @@ public class RutasActivity extends FragmentActivity implements OnMapReadyCallbac
                 e.printStackTrace();
             }
         }
+    }
+    private static float magnitudeToColor(double magnitude) {
+        if (magnitude < 1.0) {
+            return BitmapDescriptorFactory.HUE_CYAN;
+        } else if (magnitude < 2.5) {
+            return BitmapDescriptorFactory.HUE_GREEN;
+        } else if (magnitude < 4.5) {
+            return BitmapDescriptorFactory.HUE_YELLOW;
+        } else {
+            return BitmapDescriptorFactory.HUE_RED;
+        }
+    }
+
+    private void addColorsToMarkers(GeoJsonLayer layer) {
+        // Iterate over all the features stored in the layer
+        for (GeoJsonFeature feature : layer.getFeatures()) {
+            // Check if the magnitude property exists
+            if (feature.getProperty("stroke") != null) {
+
+                // Create a new point style
+                GeoJsonPointStyle pointStyle = new GeoJsonPointStyle();
+                GeoJsonLineStringStyle lineStringStyle = new GeoJsonLineStringStyle();
+
+                // Set options for the point style
+                // Assign the point style to the feature
+                lineStringStyle.setColor(Color.parseColor(feature.getProperty("stroke")));
+                feature.setLineStringStyle(lineStringStyle);
+            }
+        }
+        layer.addLayerToMap();
+    }
+    public static int[] getRGB(final String rgb)
+    {
+        final int[] ret = new int[3];
+        for (int i = 0; i < 3; i++)
+        {
+            ret[i] = Integer.parseInt(rgb.substring(i * 2, i * 2 + 2), 16);
+        }
+        return ret;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////

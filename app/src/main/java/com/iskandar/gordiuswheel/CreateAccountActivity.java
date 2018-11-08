@@ -1,7 +1,7 @@
 package com.iskandar.gordiuswheel;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,9 +16,10 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class CreateAccountActivity extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
 
@@ -27,12 +28,12 @@ public class CreateAccountActivity extends AppCompatActivity implements Response
 
     EditText etName, etLastName1, etLastName2,
             etUser, etPass, etConfirmPass,
-            etBirthday, etPhone, etEmail,
-            etMainStreet, etSecondaryStreet,
-            etNumberInt, etNumberExt;
+            etBirthday, etPhone, etEmail;
 
     ImageView imageView;
     Button btnCreateAccount;
+
+    private Boolean NameValid, LastNValid, LastN1Valid,MailValid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,10 +49,6 @@ public class CreateAccountActivity extends AppCompatActivity implements Response
         etBirthday = (EditText)findViewById(R.id.etBirthday);
         etPhone = (EditText)findViewById(R.id.etPhone);
         etEmail = (EditText)findViewById(R.id.etEmail);
-        etMainStreet = (EditText)findViewById(R.id.etMainStreet);
-        etSecondaryStreet = (EditText)findViewById(R.id.etSecondaryStreet);
-        etNumberInt = (EditText)findViewById(R.id.etNumberInt);
-        etNumberExt = (EditText)findViewById(R.id.etNumberExt);
 
         btnCreateAccount = (Button)findViewById(R.id.btnCreateAccount);
 
@@ -60,7 +57,38 @@ public class CreateAccountActivity extends AppCompatActivity implements Response
         btnCreateAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createAccount();
+
+                MailValid=isEmailValid(etEmail.getText().toString());
+                NameValid=isNameValid(etName.getText().toString());
+                LastNValid=isNameValid(etLastName1.getText().toString());
+                LastN1Valid=isNameValid(etLastName2.getText().toString());
+                if(!etName.getText().toString().equals("") && !etLastName1.getText().toString().equals("") && !etLastName2.getText().toString().equals("") && !etUser.getText().toString().equals("") && !etPass.getText().toString().equals("") && !etConfirmPass.getText().toString().equals("") && !etEmail.getText().toString().equals("")){
+                    if (NameValid){
+                        if (LastNValid){
+                            if(LastN1Valid){
+                                if (etPass.getText().toString().equals(etConfirmPass.getText().toString()))
+                                {
+                                    if (MailValid){
+                                        createAccount();
+                                    }else {
+                                        Toast.makeText(CreateAccountActivity.this, "Correo Invalido", Toast.LENGTH_SHORT).show();
+                                    }
+                                }else {
+                                    Toast.makeText(CreateAccountActivity.this, "Las Contrasenas No Coinciden", Toast.LENGTH_SHORT).show();
+                                }
+                            }else {
+                                Toast.makeText(CreateAccountActivity.this, "Apellido Materno No Valido", Toast.LENGTH_SHORT).show();
+                            }
+                        }else {
+                            Toast.makeText(CreateAccountActivity.this, "Apellido Paterno No Valido", Toast.LENGTH_SHORT).show();
+                        }
+                    }else {
+                        Toast.makeText(CreateAccountActivity.this, "Nombre No Valido", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else {
+                    Toast.makeText(CreateAccountActivity.this, "Verifique Los Campos", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -80,13 +108,41 @@ public class CreateAccountActivity extends AppCompatActivity implements Response
 
     private void createAccount(){
 
-        String url="http://192.168.43.207/login/register.php?user="+etUser.getText().toString()+"&pwd="+etPass.getText().toString()
-                +"&name=" +etName.getText().toString() +"&lastname1="+etLastName1.getText().toString() +"&lastname2="+etLastName2.getText().toString();
+        String url="http://192.168.43.207/login/register.php?user=";
 
         //String url="https://semilio9818.000webhostapp.com/sesion.php?email="+BoxUser.getText().toString()+"&pass="+BoxPass.getText().toString();
 
         jrq1 = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         rq1.add(jrq1);
     }
+
+    public static boolean isEmailValid(String email) {
+        boolean isValid = false;
+
+        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+        CharSequence inputStr = email;
+
+        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(inputStr);
+        if (matcher.matches()) {
+            isValid = true;
+        }
+        return isValid;
+    }
+
+    public static boolean isNameValid(String email) {
+        boolean isValid = false;
+
+        String expression = "^[a-zA-Z]*$";
+        CharSequence inputStr = email;
+
+        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(inputStr);
+        if (matcher.matches()) {
+            isValid = true;
+        }
+        return isValid;
+    }
+
 }
 

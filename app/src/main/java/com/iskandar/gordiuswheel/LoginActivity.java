@@ -1,6 +1,8 @@
 package com.iskandar.gordiuswheel;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -30,6 +32,8 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
     Button btnIniciar, btnCrearCuenta;
     TextView ErrorPass;
 
+    String user, pass;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +41,19 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
 
         BoxUser = (EditText) findViewById(R.id.etEmail);
         BoxPass = (EditText) findViewById(R.id.etPass);
+
+        Context context = getApplicationContext();
+        SharedPreferences sharedPreferences = context.getSharedPreferences("HMPrefs", MODE_PRIVATE);
+        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+
+        user=preferences.getString("USER","");
+        pass=preferences.getString("PASS","");
+
+        if(!user.equals("") && !user.equals("")){
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+            finish();
+        }
 
         btnIniciar = (Button) findViewById(R.id.btnLogin);
         btnCrearCuenta = (Button) findViewById(R.id.btnCreateAccount);
@@ -76,17 +93,23 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
 
         Toast.makeText(this, "Inicio De Sesion Exitoso " + BoxUser.getText().toString(), Toast.LENGTH_SHORT).show();
 
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
         JSONArray jsonArray = jsonObject.optJSONArray("datos");
         JSONObject jsonObject1 = null;
 
         try {
             jsonObject1 = jsonArray.getJSONObject(0);
-            usuario.setEmail(jsonObject1.optString("Usuario_Cuenta"));
-            usuario.setName(jsonObject1.optString("Nombre"));
-            usuario.setPass(jsonObject1.optString("Contrasena_Cuenta"));
+            editor.putString("USER", jsonObject1.optString("Usuario_Cuenta"));
+            editor.putString("PASS",jsonObject1.optString("Contrasena_Cuenta"));
+            editor.putString("NameUser",jsonObject1.optString("Nombre"));
+            editor.commit();
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(i);
+        finish();
     }
 
     private void IniciarSesion(){

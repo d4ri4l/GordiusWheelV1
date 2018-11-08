@@ -1,8 +1,10 @@
 package com.iskandar.gordiuswheel;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.text.InputFilter;
 import android.text.InputType;
 import android.text.Spanned;
@@ -29,6 +31,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static android.content.Context.MODE_PRIVATE;
 
 
 public class UserFragment extends Fragment implements Response.Listener<JSONObject>, Response.ErrorListener {
@@ -48,25 +54,17 @@ public class UserFragment extends Fragment implements Response.Listener<JSONObje
 
     EditText etParam;
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setLastN(String lastN) {
-        LastN = lastN;
-    }
-
     private String id;
     private String name;
     private String LastN;
+    public String[]data;
+    public Boolean NameValid;
+
+    private String idd;
+
+    private Bundle bundle = new Bundle();
 
     private StringBuilder allowedChars = new StringBuilder("abcdefghijklmnopqrstuvwxyz");
-
-    public String[]data;
 
     public int n=1;
 
@@ -126,7 +124,48 @@ public class UserFragment extends Fragment implements Response.Listener<JSONObje
 
             @Override
             public void onClick(View v) {
-                RecuperarDatos();
+                if(rbID.isChecked()){
+                    RecuperarDatos();
+                }
+                if(rbLastN.isChecked()){
+                    NameValid=isNameValid(etParam.getText().toString());
+                    if (NameValid){
+                        RecuperarDatos();
+                    }else {
+                        Toast.makeText(getContext(), "Por favor Ingrese Un Nombre Valido", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                if(rbName.isChecked()){
+                    NameValid=isNameValid(etParam.getText().toString());
+                    if (NameValid){
+                        RecuperarDatos();
+                    }else {
+                        Toast.makeText(getContext(), "Por favor Ingrese Un Nombre Valido", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UpdatePFragment updatePFragment = new UpdatePFragment();
+                FragmentManager manager = getFragmentManager();
+                if(rbID.isChecked()){
+                    if (!etParam.getText().toString().equals("")){
+                        SharedPreferences sharedPref = getActivity().getPreferences(MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPref.edit();
+                        editor.putString("MiID", etParam.getText().toString());
+                        editor.commit();
+                        manager.beginTransaction().add(R.id.escenario, updatePFragment).addToBackStack(null).commit();
+                    }
+                    else {
+                        Toast.makeText(getContext(), "Ingrese Un ID", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else {
+                    Toast.makeText(getContext(), "Opcion Valida Solo para Busqueda Por ID", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         rbID.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -214,6 +253,8 @@ public class UserFragment extends Fragment implements Response.Listener<JSONObje
 
     @Override
     public void onResponse(JSONObject jsonObject) {
+        User user = new User();
+
         JSONArray jsonArray = jsonObject.optJSONArray("datos");
         JSONObject jsonObject1 = null;
 
@@ -222,9 +263,11 @@ public class UserFragment extends Fragment implements Response.Listener<JSONObje
             id=jsonObject1.optString("idClientes");
             name=jsonObject1.optString("Nombre");
             LastN=jsonObject1.optString("ApPaterno");
+            user.setIdd(jsonObject1.optString("idClientes"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
         Toast.makeText(getContext(), "Se Encontro El Usuario", Toast.LENGTH_SHORT).show();
         data=new String[]{id,name,LastN};
         tableDynamic.addItems(data);
@@ -241,4 +284,36 @@ public class UserFragment extends Fragment implements Response.Listener<JSONObje
         rq.add(jrq);
     }
 
+    public static boolean isNameValid(String email) {
+        boolean isValid = false;
+
+        String expression = "^[a-zA-Z]*$";
+        CharSequence inputStr = email;
+
+        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(inputStr);
+        if (matcher.matches()) {
+            isValid = true;
+        }
+        return isValid;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLastN(String lastN) {
+        LastN = lastN;
+    }
+    public String getIdd() {
+        return idd;
+    }
+
+    public void setIdd(String idd) {
+        this.idd = idd;
+    }
 }

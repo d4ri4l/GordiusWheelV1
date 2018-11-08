@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "R3", "description": null, "timestamp": null, "begin": null, "end": null, "altitudeMode": null, "tessellate": 1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "LineString", "coordinates": [ [ -110.289744667932098, 24.135724092866351, 0.0 ], [ -110.2966346159171, 24.130916970698379, 0.0 ], [ -110.323425905001002, 24.1494123548243, 0.0 ], [ -110.316293406597296, 24.15813370640662, 0.0 ], [ -110.315330694701601, 24.15745314279021, 0.0 ], [ -110.317493233517297, 24.154860139209969, 0.0 ], [ -110.289744667932098, 24.135724092866351, 0.0 ] ] } }
+]
+}

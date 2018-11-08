@@ -14,12 +14,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/box"
         android:ems="10"
         android:hint="@string/TextBox_Name"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,8 +26,7 @@
         android:layout_width="160dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/box"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/LastName1"
         android:inputType="textPersonName"
@@ -40,15 +37,14 @@
         android:id="@+id/etLastName2"
         android:layout_width="160dp"
         android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/box"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/LastName2"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/etLastName1"
         app:layout_constraintTop_toBottomOf="@+id/etName" />
 
@@ -58,13 +54,11 @@
         android:layout_height="45dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/box"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/BirthDate"
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.062"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPass" />
 
@@ -74,13 +68,11 @@
         android:layout_height="45dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/box"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/Phone"
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.062"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etBirthday" />
 
@@ -90,70 +82,13 @@
         android:layout_height="45dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/box"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.062"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPhone" />
-
-    <EditText
-        android:id="@+id/etMainStreet"
-        android:layout_width="160dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/box"
-        android:ems="10"
-        android:hint="@string/main_Street"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
-
-    <EditText
-        android:id="@+id/etSecondaryStreet"
-        android:layout_width="160dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/box"
-        android:ems="10"
-        android:hint="@string/secondary_street"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
-
-    <EditText
-        android:id="@+id/etNumberInt"
-        android:layout_width="160dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/box"
-        android:ems="10"
-        android:hint="@string/NumberInt"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etMainStreet" />
-
-    <EditText
-        android:id="@+id/etNumberExt"
-        android:layout_width="160dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/box"
-        android:ems="10"
-        android:hint="@string/NumberExt"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/etNumberInt"
-        app:layout_constraintTop_toBottomOf="@+id/etSecondaryStreet" />
 
     <EditText
         android:id="@+id/etUser"
@@ -161,13 +96,11 @@
         android:layout_height="45dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/box"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/BoxUser"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.062"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etLastName1" />
 
@@ -176,8 +109,7 @@
         android:layout_width="160dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/box"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/BoxPass"
         android:inputType="textPassword"
@@ -188,15 +120,14 @@
         android:id="@+id/etConfirmPass"
         android:layout_width="160dp"
         android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/box"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/BoxPass"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/etPass"
         app:layout_constraintTop_toBottomOf="@+id/etUser" />
 
@@ -204,12 +135,12 @@
         android:id="@+id/btnCreateAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:text="@string/CreateAccount"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNumberInt" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

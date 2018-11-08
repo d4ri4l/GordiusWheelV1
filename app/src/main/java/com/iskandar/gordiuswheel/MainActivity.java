@@ -1,11 +1,6 @@
 package com.iskandar.gordiuswheel;
 
-import android.app.FragmentManager;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -23,18 +18,16 @@ public class MainActivity extends AppCompatActivity
     private int loginstatus=0;
     private int Accouttype;
 
+    public String id;
+
+    private android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        if (loginstatus==0)
-        {
-            Intent i = new Intent(getApplicationContext(), LoginActivity.class);
-            startActivity(i);
-        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -85,11 +78,11 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_cuenta) {
-            android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
             fm.beginTransaction().replace(R.id.escenario, new CuentaFragment()).commit();
         } else if (id == R.id.nav_rutas) {
-            Intent i = new Intent(getApplicationContext(), RutasActivity.class);
-            startActivity(i);
+            /*Intent i = new Intent(getApplicationContext(), RutasActivity.class);
+            startActivity(i);*/
+            fm.beginTransaction().replace(R.id.escenario, new MapsFragment()).commit();
         }
         else if (id == R.id.nav_user){
             if (loginstatus==1)
@@ -97,7 +90,6 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(this, "Solo Disponible Para Administradores", Toast.LENGTH_SHORT).show();
             }
             else {
-                android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
                 fm.beginTransaction().replace(R.id.escenario, new UserFragment()).commit();
             }
         }
@@ -107,7 +99,6 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(this, "Solo Disponible Para Administradores", Toast.LENGTH_SHORT).show();
             }
             else {
-                android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
                 fm.beginTransaction().replace(R.id.escenario, new DriversFragment()).commit();
             }
 
@@ -118,12 +109,10 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(this, "Solo Disponible Para Administradores", Toast.LENGTH_SHORT).show();
             }
             else {
-                android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
                 fm.beginTransaction().replace(R.id.escenario, new RoutesFragment()).commit();
             }
         }
         else if (id == R.id.nav_favoritos) {
-            android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
             fm.beginTransaction().replace(R.id.escenario, new FavoritosFragment()).commit();
         } else if (id == R.id.nav_ajustes) {
 
@@ -131,5 +120,13 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

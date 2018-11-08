@@ -44,6 +44,7 @@
     <string name="ID">ID</string>
     <string name="Name">Nombre</string>
     <string name="LastName">Apellido</string>
+    <string name="Update">Actualizar</string>
 
     <!-- Menu-->
 
