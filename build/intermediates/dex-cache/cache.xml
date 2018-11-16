@@ -3,10 +3,352 @@
 
     <item
         is-multidex="true"
+        jar="C:\Users\Emilio\.android\build-cache\66aec903d9c7b3306e2ab3d26e8d9254a77d52a0\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.3"
+        sha1="b77e50b3c31d0fc64148530f7077f79ec114b5b9">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2a9dd9f1087bff3a60b42eae6123e17beee4d311\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Emilio\.android\build-cache\9a64e562bc3de05fc101318122c7698e2f2e23fd\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.3"
+        sha1="ed87ccdcb70c17d71ba4e6e4ac16afa62d3c49fb">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_85e68e8e1bdd577f5dba14af2602c05d78025535\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Emilio\.android\build-cache\7656d4167669b07b793548ba7ef2670f22cac5a3\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.3"
+        sha1="43e9789bd3240271265ab30ce1be9f224843f5a8">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_36c8fd322bce05727fe07ead468af54da21e1c5c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Emilio\.android\build-cache\34c542ea0e5a38acfbee04743492dc1d2bb221c3\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.3"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f65270506b50a2f448fa11e9361486d1259b32b3\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.android\build-cache\eb87fa9394ca1725145ef203e713a8d12386a8b4\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="2feadd535770271ca57b7b431f42151aa4af324a">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\classes_fd9c0f2529e95a4264f7febf1fe5abed3c5502bb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.android\build-cache\3e95445ce17db869c56a4f86ef1cfd35daba2bdf\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="ae6d33f37143b08cd8c477c9e348d61ef7ed7eba">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\classes_7e0079b9e6fdbaf3e8fadf7cc320b36876784404.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Emilio\.android\build-cache\290657d5fed42cde8b97e9eae077c820eeee5ce1\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.3"
+        sha1="364364bf77b4a71afc5930fc3ae57b3f0eea637c">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_817a2c65bdabf81d887f762b34585970ca8a9949\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Emilio\.android\build-cache\2678271c23fefa95bd7a74313f6d8473e6815920\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.3"
+        sha1="e5b429c146094a612134910688d169ec08deeefb">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5c2ab4816c1fc3435d46c674e29d3723ac9b563b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Emilio\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\25.4.0\f6a2fc748ae3769633dea050563e1613e93c135e\support-annotations-25.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.3"
+        sha1="f6a2fc748ae3769633dea050563e1613e93c135e">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.4.0_918b8f6f28df44ac7a30fb6d504798b11f554763\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Emilio\.android\build-cache\c723345633b0749f5fc7836168decddf75f6f998\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.3"
+        sha1="e04f28ac2dd9bbe48ced6fc87fedf46c2586f5d6">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_be3ba2794901fb309b517db76bb4e985bf095298\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Emilio\.android\build-cache\d44655d5282d9975f52db9bce2e305c016fe6a25\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.3"
+        sha1="b15c6ded887ad967e20bb335c1a121b253c04dce">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b89aa60fa515b86e9c993dd29136db822bc546a2\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.android\build-cache\72d289c160ae5bcb6c956cca3f59e3b8f0151013\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="d968b9bd0011800e0d333d1571b8d34bcb8a0b6e">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\classes_a068d4c57de7b6eb06572143dcd47a7033a5c3f2.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Emilio\.android\build-cache\f4acdf44e04bf7abdcc275e9964c1c9943de6bf0\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.3"
+        sha1="2430e711762a749feb00b3d64858ca4768251b9d">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b1ab8f06299f48cf91a6cb19a12ef82d760f49d5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Emilio\.android\build-cache\3a9ebc7b9a0c4010076d2d2b9f6fbfcba51a14ab\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.3"
+        sha1="fcae52a60bc07924d370b4d376116cd8f8581f54">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_39786ff29dc07af176ba04bf08036ec0b432d016\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.android\build-cache\11e0345bf751625dc3c7423c7144f5734394d943\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="70ffe00aaf049893f59d1dad57bd82992faa38ef">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\classes_2b04b8851245acacc614e204fa4229d6c05cbf86.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.android\build-cache\9cfa1c6bcca970f3beac49ebd2ab757aee2d12dd\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="874f1143c11f5d38533efe512bf913e3e847e7df">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\classes_89f2a5770804d9ed80a7c529bc44dbfc24f9ec32.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.android\build-cache\5852300699df63d23c58d7f76a8a96f0748d2ad0\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="6f57b76211a1d7b0c1f18873af59faad95664681">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\classes_23ce6e29a67f6e82ef07127e770b6368b23d9f74.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.android\build-cache\7ad2fd62245d2b522a78841f8c79a18e4bf96191\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="88c68e5ef7c5ace393d014c9ec5fe736b1ca55cf">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\classes_150a52dc1519cc9ebcdb74af55f9c8ba3558c976.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Emilio\.android\build-cache\d7c6fde164dbed0a9f434445d16f7ba40ae4076f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.3"
+        sha1="a64026daf4819a589aea776f5deb19b257a104d1">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9175720e925a8cfa50438d48f5784055f17d06d6\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.android\build-cache\1db69543e2a10638911fc6a0d2faf1a005d9b5e4\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="1fd3ceac7f415975323d52c6c6057db409a907f6">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\classes_e6cf7c3f38d1a76669fa17e144bb11d6496b6794.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Emilio\.android\build-cache\5a2a39a7296a43de7a1ad8289a66aff251ec236f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.3"
+        sha1="e1625e48a836779b5fa141d22e5d05563aaccc9a">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f92b1c33af10d8b82a33f5f73275f425c711ef93\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.android\build-cache\0f333b7816856a30d8fda5e9ea57c411d2c01439\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="3304d33470ff64cf83bce9189ff3648a42eb2aa7">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\classes_f8acb8f50cd94ba38cb2c15ff16df564aaef6d42.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.gradle\caches\modules-2\files-2.1\android.arch.lifecycle\common\1.1.0\edf3f7bfb84a7521d0599efa3b0113a0ee90f85\common-1.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="0edf3f7bfb84a7521d0599efa3b0113a0ee90f85">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\common-1.1.0_42b398e1f17f118ed0ab1ec6beda95b9e0ac9f29.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.android\build-cache\5d8c3637242a6abafd0573df107d129eec5bbb3f\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="8a9fd7c97f1d13f97f3b52f9d2e54cd857d5acf9">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\classes_1c6d98b4f790b0d870b977478aa64c67fff6ebf7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.gradle\caches\modules-2\files-2.1\com.android.support.constraint\constraint-layout-solver\1.1.3\bde0667d7414c16ed62d3cfe993cff7f9d732373\constraint-layout-solver-1.1.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="bde0667d7414c16ed62d3cfe993cff7f9d732373">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.1.3_61fa619141dd35ccf05ed3403af2e17a248f41e5.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Emilio\.android\build-cache\7e8f8df7cec63dcb31e8ccc01f9c835a0c510783\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.3"
+        sha1="c2deeac83ffa1304264bc755c2ddb84e7a7fa239">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_12df8d0951f8f22f010e3d941a5a8e54cd2a91aa\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Emilio\.android\build-cache\e1011b40fc88a71153dadcb3622b1f1bea6875e3\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e16072b23b3d6391cd7fd3a0bc1e0d12c7f77c61\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.android\build-cache\d3fca64640f224a22b89865e99de8ba9c70de7cf\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="e2bbe48deed35056023eed2cdc0cc92e5c7d3617">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\classes_446b1efe98d75e43f00b563fb4240d762e87a44c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.android\build-cache\039e8e1b6875377bbdd9879993b5fe87009737d5\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="23dcb4803d3103bde3f3f5db978a726338fe49ae">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\classes_1d700d3c7733e9da15a3df822857a1a3d221d097.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.android\build-cache\3c3dba9dc852fdde408b2443d22d92f5fb3de3c2\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="71d380aeac037e63bab7bda2ba211777e16a2f42">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\classes_ec221020341d602a8235e2d22fae68507e950bce.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.android\build-cache\7656d4167669b07b793548ba7ef2670f22cac5a3\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="43e9789bd3240271265ab30ce1be9f224843f5a8">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\classes_36c8fd322bce05727fe07ead468af54da21e1c5c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.android\build-cache\915bcb6518e48e12c1b621a58591fe70be37f375\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="ec657bb192b20229696216bf233779b16bf75a54">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\classes_8748f51e57c89ea8260c500ac3c51a72aaae7e8f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.android\build-cache\3a9ebc7b9a0c4010076d2d2b9f6fbfcba51a14ab\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="fcae52a60bc07924d370b4d376116cd8f8581f54">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\classes_39786ff29dc07af176ba04bf08036ec0b432d016.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.android\build-cache\34c542ea0e5a38acfbee04743492dc1d2bb221c3\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\classes_f65270506b50a2f448fa11e9361486d1259b32b3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.android\build-cache\290657d5fed42cde8b97e9eae077c820eeee5ce1\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="364364bf77b4a71afc5930fc3ae57b3f0eea637c">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\classes_817a2c65bdabf81d887f762b34585970ca8a9949.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Emilio\.android\build-cache\ef06faf7ac0d6b57021eafc209cf7a6a4c8ce7d8\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.3"
+        sha1="40a6b8f05124eb9e6012e18b80a6dbd13440e283">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e0fea690fde25ca29fb634b9e938fecd9158ee6f\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.android\build-cache\b8f69b008b7feb8ae564fd84974ec264c64bcd11\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="7038c6d960d3fe26fd41bc509f256c9692d886ce">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\classes_b80463216f829f007b8552ac38b1963a0de3aacb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.android\build-cache\d44655d5282d9975f52db9bce2e305c016fe6a25\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="b15c6ded887ad967e20bb335c1a121b253c04dce">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\classes_b89aa60fa515b86e9c993dd29136db822bc546a2.jar" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
-        revision="25.0.2"
+        revision="27.0.3"
         sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
         <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_b996c49020ee6f18de7e776c40f94c6d6556a9b8\classes.dex" />
     </item>
@@ -15,9 +357,162 @@
         jar="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
-        revision="25.0.2"
-        sha1="12d575c5bf044a79a8cf06c43bccb8980288a696">
+        revision="27.0.3"
+        sha1="21206267ce55a0d8c6dc065f4b8bbd4b2ba81723">
         <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_f25b42aefd77b9abc7fa5045e8b9b558270ce629\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Emilio\.android\build-cache\11e0345bf751625dc3c7423c7144f5734394d943\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.3"
+        sha1="70ffe00aaf049893f59d1dad57bd82992faa38ef">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2b04b8851245acacc614e204fa4229d6c05cbf86\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.android\build-cache\f4acdf44e04bf7abdcc275e9964c1c9943de6bf0\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="2430e711762a749feb00b3d64858ca4768251b9d">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\classes_b1ab8f06299f48cf91a6cb19a12ef82d760f49d5.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Emilio\.android\build-cache\0e850eac7751d749c17880e538590070121eb430\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.3"
+        sha1="b1e0cd070d7cf659ece90e919bff76e7ddc32532">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_fdfe632d00f5b754ac3ed6d5ed6872323d19002c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Emilio\.android\build-cache\88130e9d5297313c4f2db9c683bf08b10f511d97\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.3"
+        sha1="a7a0aa678c3bbadb67fb41df9e107f7ee9087902">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c60cf59a13de5a2cf1aeb4d647a34a6402546b2c\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\27.1.1\39ded76b5e1ce1c5b2688e1d25cdc20ecee32007\support-annotations-27.1.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="39ded76b5e1ce1c5b2688e1d25cdc20ecee32007">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\support-annotations-27.1.1_c8cf66e54c9262bbcfbe3f08d8949c7173f4cdba.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Emilio\.android\build-cache\3a9154c8d3d19430b2c696c511494c21608f7e19\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.3"
+        sha1="4961be1437163ab598620a3c907c0f3432936f51">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_276899f4a54db82ef202af64a7aa0c2e761f9c7a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Emilio\.android\build-cache\5852300699df63d23c58d7f76a8a96f0748d2ad0\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.3"
+        sha1="6f57b76211a1d7b0c1f18873af59faad95664681">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_23ce6e29a67f6e82ef07127e770b6368b23d9f74\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Emilio\.android\build-cache\97e76fe18e824b8c0584c27a1ab0ad493a16905b\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.3"
+        sha1="d29e451fd5bcc265989bf80afd4f149d95d72e7d">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_96e5a7f181c08ed44d435632109bc0a74e0cd297\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.gradle\caches\modules-2\files-2.1\android.arch.core\common\1.1.0\8007981f7d7540d89cd18471b8e5dcd2b4f99167\common-1.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="8007981f7d7540d89cd18471b8e5dcd2b4f99167">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\common-1.1.0_5e9680f2829b2cf8b1fff731ca1e1bf99fd1abab.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Emilio\.android\build-cache\03fd21183c99730e3f8bd2342332493727f6894d\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.3"
+        sha1="cad1364721fc716a39bdc351d3637edb634c9aa5">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e59426bd713a3ee7e9b48c8b3c5b942fddd59fc9\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.android\build-cache\4324d3bac0bc958ad93e3406340c207ac17f5d27\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="4d2b8ad415048e88b41ba4afcaafe36150e69b8c">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\classes_1f16d940f258af061c0ae1cab8477f7baee9de03.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.android\build-cache\5a2a39a7296a43de7a1ad8289a66aff251ec236f\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="e1625e48a836779b5fa141d22e5d05563aaccc9a">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\classes_f92b1c33af10d8b82a33f5f73275f425c711ef93.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.android\build-cache\2678271c23fefa95bd7a74313f6d8473e6815920\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="e5b429c146094a612134910688d169ec08deeefb">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\classes_5c2ab4816c1fc3435d46c674e29d3723ac9b563b.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Emilio\.android\build-cache\d4735ededb22d0bff9cfc323a5fad02f684b4fd4\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.3"
+        sha1="05e3d15c623cd98f0eb43c8249fb6151fae0786c">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_bc0592e20a04279be77e15184251d09aab8f2b77\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Emilio\.gradle\caches\modules-2\files-2.1\com.android.support.constraint\constraint-layout-solver\1.1.3\bde0667d7414c16ed62d3cfe993cff7f9d732373\constraint-layout-solver-1.1.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.3"
+        sha1="bde0667d7414c16ed62d3cfe993cff7f9d732373">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.1.3_61fa619141dd35ccf05ed3403af2e17a248f41e5\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.android\build-cache\88ff6155027449b7dd3e10efc3153a520e6b5409\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="c9a721adcd7dbae7a197b0ef81102336539f63ff">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\classes_0ad4a404aa13848ad29a8d18367fe66c43ac0ae7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Emilio\.android\build-cache\9a64e562bc3de05fc101318122c7698e2f2e23fd\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="ed87ccdcb70c17d71ba4e6e4ac16afa62d3c49fb">
+        <dex dex="C:\Users\Emilio\AndroidStudioProjects\GordiusWheel-Rutas\app\build\intermediates\pre-dexed\debug\classes_85e68e8e1bdd577f5dba14af2602c05d78025535.jar" />
     </item>
 
 </items>
