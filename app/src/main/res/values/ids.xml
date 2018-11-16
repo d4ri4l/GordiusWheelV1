@@ -6,4 +6,5 @@
     <item name="nav_drivers" type="id">nav_drivers</item>
     <item name="nav_routes" type="id">nav_routes</item>
     <item name="etSearchUsers" type="id">etSearchUsers</item>
+    <item name="nav_sched" type="id">nav_sched</item>
 </resources>

@@ -45,6 +45,10 @@
     <string name="Name">Nombre</string>
     <string name="LastName">Apellido</string>
     <string name="Update">Actualizar</string>
+    <string name="ShowRoute">Mostrar Ruta</string>
+    <string name="AddFav">Añadir A Favoritos</string>
+    <string name="ShowSchedule">Mostrar Horarios</string>
+    <string name="UserType">Tipo De Usuario</string>
 
     <!-- Menu-->
 

@@ -96,19 +96,20 @@ public class CreateAccountActivity extends AppCompatActivity implements Response
     @Override
     public void onErrorResponse(VolleyError error) {
 
-        //ErrorPass.setText("Email o Contraseña Incorrecto");
-        Toast.makeText(this, "Registro Fallido " + error.toString(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Registro Exitoso " + etUser.getText().toString(), Toast.LENGTH_SHORT).show();
+        finish();
     }
 
     @Override
     public void onResponse(JSONObject jsonObject) {
 
         Toast.makeText(this, "Registro Exitoso " + etUser.getText().toString(), Toast.LENGTH_SHORT).show();
+        finish();
     }
 
     private void createAccount(){
 
-        String url="http://192.168.43.207/login/register.php?user=";
+        String url="https://gordiuswheelyae.000webhostapp.com/register.php?names="+etUser.getText().toString()+"&user="+etPass.getText().toString()+"&pass="+etName.getText().toString()+"&appaterno="+etLastName1.getText().toString()+"&apmaterno="+etLastName2.getText().toString()+"&nacimiento="+etBirthday.getText().toString()+"&telefono="+etPhone.getText().toString()+"&correo="+etEmail.getText().toString()+"&usertype=1";
 
         //String url="https://semilio9818.000webhostapp.com/sesion.php?email="+BoxUser.getText().toString()+"&pass="+BoxPass.getText().toString();
 

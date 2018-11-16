@@ -26,6 +26,8 @@ import org.json.JSONObject;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static java.lang.System.exit;
+
 
 public class UpdatePFragment extends Fragment implements Response.Listener<JSONObject>, Response.ErrorListener {
 
@@ -33,6 +35,16 @@ public class UpdatePFragment extends Fragment implements Response.Listener<JSONO
     private String Last1;
     private String LastN1;
     private Boolean NameValid, LastValid, LastNValid;
+
+    public Boolean getUpdate() {
+        return Update;
+    }
+
+    public void setUpdate(Boolean update) {
+        Update = update;
+    }
+
+    private Boolean Update=false;
 
     View vista;
 
@@ -49,14 +61,20 @@ public class UpdatePFragment extends Fragment implements Response.Listener<JSONO
 
         vista = inflater.inflate(R.layout.fragment_update, container, false);
 
-        rq = Volley.newRequestQueue(getContext());
+        SharedPreferences prefe=getActivity().getSharedPreferences("datos", Context.MODE_PRIVATE);
 
+        rq = Volley.newRequestQueue(getContext());
         name = (EditText)vista.findViewById(R.id.etNameUpdate);
         last = (EditText)vista.findViewById(R.id.etLastUpdate);
         lastName = (EditText)vista.findViewById(R.id.etLastNUpdate);
 
         update = (Button)vista.findViewById(R.id.btnUpdate);
-        RecuperarDatos();
+        if(prefe.getString("ORIGIN","").equals("U")){
+            RecuperarDatosUser();
+        }
+        if (prefe.getString("ORIGIN","").equals("D")){
+            RecuperarDatosDriver();
+        }
 
         update.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +86,14 @@ public class UpdatePFragment extends Fragment implements Response.Listener<JSONO
                     if(NameValid){
                         if(LastValid){
                             if (LastNValid){
-
+                                setUpdate(true);
+                                SharedPreferences prefe=getActivity().getSharedPreferences("datos", Context.MODE_PRIVATE);
+                                if(prefe.getString("ORIGIN","").equals("U")){
+                                    UpdateDataUser();
+                                }
+                                if (prefe.getString("ORIGIN","").equals("D")){
+                                    UpdateDataDriver();
+                                }
                             }else {
                                 Toast.makeText(getContext(), "Ingrese Un Apellido Materno Valido", Toast.LENGTH_SHORT).show();
                             }
@@ -87,39 +112,85 @@ public class UpdatePFragment extends Fragment implements Response.Listener<JSONO
 
     @Override
     public void onErrorResponse(VolleyError volleyError) {
-        Toast.makeText(getContext(), volleyError.toString(), Toast.LENGTH_SHORT).show();
+        if(!Update){
+            Toast.makeText(getContext(), "Error Al Recuperar Los Datos", Toast.LENGTH_SHORT).show();
+            exit(0);
+        }else {
+            Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
     public void onResponse(JSONObject jsonObject) {
+        if(!getUpdate())
+        {
+            JSONArray jsonArray = jsonObject.optJSONArray("datos");
+            JSONObject jsonObject1 = null;
 
-        JSONArray jsonArray = jsonObject.optJSONArray("datos");
-        JSONObject jsonObject1 = null;
+            try {
+                jsonObject1 = jsonArray.getJSONObject(0);
+                setName1(jsonObject1.optString("Nombre"));
+                setLast1(jsonObject1.optString("ApPaterno"));
+                setLastN1(jsonObject1.optString("ApMaterno"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
-        try {
-            jsonObject1 = jsonArray.getJSONObject(0);
-            setName1(jsonObject1.optString("Nombre"));
-            setLast1(jsonObject1.optString("ApPaterno"));
-            setLastN1(jsonObject1.optString("ApMaterno"));
-        } catch (JSONException e) {
-            e.printStackTrace();
+            name.setText(name1);
+            last.setText(Last1);
+            lastName.setText(LastN1);
+        }else {
+            Toast.makeText(getContext(), "All Okay", Toast.LENGTH_SHORT).show();
         }
-
-        name.setText(name1);
-        last.setText(Last1);
-        lastName.setText(LastN1);
-
-
-
     }
 
-    private void RecuperarDatos(){
+    private void RecuperarDatosUser(){
 
         String id;
-        SharedPreferences sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
-        id=sharedPreferences.getString("MiID", "1");
+        SharedPreferences prefe=getActivity().getSharedPreferences("datos",Context.MODE_PRIVATE);
+        id=prefe.getString("MiID", "");
 
-        String url="https://gordiuswheelyae.000webhostapp.com/RecData.php?param=" + id;
+        String url="https://gordiuswheelyae.000webhostapp.com/RecDataUser.php?param=" + id;
+
+        //String url="https://semilio9818.000webhostapp.com/sesion.php?email="+BoxUser.getText().toString()+"&pass="+BoxPass.getText().toString();
+
+        jrq = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+        rq.add(jrq);
+    }
+    private void UpdateDataUser(){
+
+        String id;
+        SharedPreferences prefe=getActivity().getSharedPreferences("datos",Context.MODE_PRIVATE);
+        id=prefe.getString("MiID", "");
+
+        String url="https://gordiuswheelyae.000webhostapp.com/UpdateUser.php?user=" + prefe.getString("MiID", "") +"&nombre="+ name.getText().toString()+"&appaterno="+last.getText().toString()+"&apmaterno="+lastName.getText().toString();
+
+        //String url="https://semilio9818.000webhostapp.com/sesion.php?email="+BoxUser.getText().toString()+"&pass="+BoxPass.getText().toString();
+
+        jrq = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+        rq.add(jrq);
+    }
+
+    private void RecuperarDatosDriver(){
+
+        String id;
+        SharedPreferences prefe=getActivity().getSharedPreferences("datos",Context.MODE_PRIVATE);
+        id=prefe.getString("MiID", "");
+
+        String url="https://gordiuswheelyae.000webhostapp.com/RecDataDriver.php?param=" + id;
+
+        //String url="https://semilio9818.000webhostapp.com/sesion.php?email="+BoxUser.getText().toString()+"&pass="+BoxPass.getText().toString();
+
+        jrq = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+        rq.add(jrq);
+    }
+    private void UpdateDataDriver(){
+
+        String id;
+        SharedPreferences prefe=getActivity().getSharedPreferences("datos",Context.MODE_PRIVATE);
+        id=prefe.getString("MiID", "");
+
+        String url="https://gordiuswheelyae.000webhostapp.com/UpdateDriver.php?user=" + prefe.getString("MiID", "") +"&nombre="+ name.getText().toString()+"&appaterno="+last.getText().toString()+"&apmaterno="+lastName.getText().toString();
 
         //String url="https://semilio9818.000webhostapp.com/sesion.php?email="+BoxUser.getText().toString()+"&pass="+BoxPass.getText().toString();
 

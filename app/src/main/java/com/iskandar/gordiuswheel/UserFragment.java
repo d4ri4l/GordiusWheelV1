@@ -1,13 +1,12 @@
 package com.iskandar.gordiuswheel;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.text.InputFilter;
 import android.text.InputType;
-import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,11 +29,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static android.content.Context.MODE_PRIVATE;
 
 
 public class UserFragment extends Fragment implements Response.Listener<JSONObject>, Response.ErrorListener {
@@ -58,23 +54,14 @@ public class UserFragment extends Fragment implements Response.Listener<JSONObje
     private String name;
     private String LastN;
     public String[]data;
-    public Boolean NameValid;
+    public Boolean NameValid, delete=false;
 
     private String idd;
 
-    private Bundle bundle = new Bundle();
-
-    private StringBuilder allowedChars = new StringBuilder("abcdefghijklmnopqrstuvwxyz");
-
-    public int n=1;
-
     private TableLayout tableLayout;
     private String[]header={"ID","Nombre","Apellido"};
-    private ArrayList<String[]>rows=new ArrayList<>();
 
     private TableDynamic tableDynamic;
-
-    private int status=0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -106,19 +93,8 @@ public class UserFragment extends Fragment implements Response.Listener<JSONObje
         tableDynamic.addHeader(header);
         tableDynamic.backgroundHeader(Color.rgb(11,0,151));
 
-        if(rbID.isChecked()){
-            etParam.setInputType(InputType.TYPE_CLASS_NUMBER);
-        }
-        if(rbLastN.isChecked()){
-            etParam.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-            //etParam.setFilters(new InputFilter[] { filter });
-            //etParam.setKeyListener(new DigitsKeyListener().getInstance(allowedChars.toString()));
-        }
-        if(rbName.isChecked()){
-            etParam.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-            //etParam.setFilters(new InputFilter[] { filter });
-            //etParam.setKeyListener(new DigitsKeyListener().getInstance(allowedChars.toString()));
-        }
+        etParam.setInputType(InputType.TYPE_CLASS_NUMBER);
+        etParam.setHint("ID");
 
         btnSearch.setOnClickListener(new View.OnClickListener() { // hago clic en el botón
 
@@ -153,11 +129,30 @@ public class UserFragment extends Fragment implements Response.Listener<JSONObje
                 FragmentManager manager = getFragmentManager();
                 if(rbID.isChecked()){
                     if (!etParam.getText().toString().equals("")){
-                        SharedPreferences sharedPref = getActivity().getPreferences(MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sharedPref.edit();
+                        SharedPreferences prefe=getActivity().getSharedPreferences("datos", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = prefe.edit();
                         editor.putString("MiID", etParam.getText().toString());
+                        editor.putString("ORIGIN", "U");
                         editor.commit();
-                        manager.beginTransaction().add(R.id.escenario, updatePFragment).addToBackStack(null).commit();
+                        manager.beginTransaction().replace(R.id.escenarioSeleccion, updatePFragment).addToBackStack(null).commit();
+                    }
+                    else {
+                        Toast.makeText(getContext(), "Ingrese Un ID", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else {
+                    Toast.makeText(getContext(), "Opcion Valida Solo para Busqueda Por ID", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(rbID.isChecked()){
+                    if (!etParam.getText().toString().equals("")){
+                        delete=true;
+                        DeleteUser();
                     }
                     else {
                         Toast.makeText(getContext(), "Ingrese Un ID", Toast.LENGTH_SHORT).show();
@@ -173,16 +168,15 @@ public class UserFragment extends Fragment implements Response.Listener<JSONObje
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(rbID.isChecked()){
                     etParam.setInputType(InputType.TYPE_CLASS_NUMBER);
+                    etParam.setHint("ID");
                 }
                 if(rbLastN.isChecked()){
                     etParam.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-                    //etParam.setFilters(new InputFilter[] { filter });
-                    //etParam.setKeyListener(new DigitsKeyListener().getInstance(allowedChars.toString()));
+                    etParam.setHint("Apellido");
                 }
                 if(rbName.isChecked()){
                     etParam.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-                    //etParam.setFilters(new InputFilter[] { filter });
-                    //etParam.setKeyListener(new DigitsKeyListener().getInstance(allowedChars.toString()));
+                    etParam.setHint("Nombre");
                 }
             }
         });
@@ -191,16 +185,15 @@ public class UserFragment extends Fragment implements Response.Listener<JSONObje
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(rbID.isChecked()){
                     etParam.setInputType(InputType.TYPE_CLASS_NUMBER);
+                    etParam.setHint("ID");
                 }
                 if(rbLastN.isChecked()){
                     etParam.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-                    //etParam.setFilters(new InputFilter[] { filter });
-                    //etParam.setKeyListener(new DigitsKeyListener().getInstance(allowedChars.toString()));
+                    etParam.setHint("Apellido");
                 }
                 if(rbName.isChecked()){
                     etParam.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-                    //etParam.setFilters(new InputFilter[] { filter });
-                    //etParam.setKeyListener(new DigitsKeyListener().getInstance(allowedChars.toString()));
+                    etParam.setHint("Nombre");
                 }
             }
         });
@@ -209,69 +202,59 @@ public class UserFragment extends Fragment implements Response.Listener<JSONObje
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(rbID.isChecked()){
                     etParam.setInputType(InputType.TYPE_CLASS_NUMBER);
+                    etParam.setHint("ID");
                 }
                 if(rbLastN.isChecked()){
                     etParam.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-                    //etParam.setFilters(new InputFilter[] { filter });
-                    //etParam.setKeyListener(new DigitsKeyListener().getInstance(allowedChars.toString()));
+                    etParam.setHint("Apellido");
                 }
                 if(rbName.isChecked()){
                     etParam.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-                    //etParam.setFilters(new InputFilter[] { filter });
-                    //etParam.setKeyListener(new DigitsKeyListener().getInstance(allowedChars.toString()));
+                    etParam.setHint("Nombre");
                 }            }
         });
 
         return vista;
     }
 
-    private ArrayList<String[]>getDrivers(){
-        rows.add(new String[]{id,name,LastN});
-        Toast.makeText(getContext(), "hofer", Toast.LENGTH_SHORT).show();
+    private void DeleteUser() {
+        String url="https://gordiuswheelyae.000webhostapp.com/DeleteUser.php?user="+etParam.getText().toString();
 
-        return rows;
+        jrq = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+        rq.add(jrq);
     }
-
-    public static InputFilter filter = new InputFilter() {
-        @Override
-        public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
-            String blockCharacterSet = "1234567890!@#$%^&*()_-=+{[}]|;:.>?/<,`~";
-            if (source != null && blockCharacterSet.contains(("" + source))) {
-                return "";
-            }
-            return null;
-        }
-    };
 
 
     @Override
     public void onErrorResponse(VolleyError volleyError) {
-
-        Toast.makeText(getContext(), "No Se Encontro El Usuario", Toast.LENGTH_SHORT).show();
-        n=101;
+        if(!delete){
+            Toast.makeText(getContext(), "No Se Encontro El Usuario", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(getContext(), "El Usuario Se Elimino Correctamente", Toast.LENGTH_SHORT).show();
+            delete=false;
+        }
     }
 
     @Override
     public void onResponse(JSONObject jsonObject) {
-        User user = new User();
+        if(!delete){
+            JSONArray jsonArray = jsonObject.optJSONArray("datos");
+            JSONObject jsonObject1 = null;
 
-        JSONArray jsonArray = jsonObject.optJSONArray("datos");
-        JSONObject jsonObject1 = null;
+            try {
+                jsonObject1 = jsonArray.getJSONObject(0);
+                id=jsonObject1.optString("idClientes");
+                name=jsonObject1.optString("Nombre");
+                LastN=jsonObject1.optString("ApPaterno");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
-        try {
-            jsonObject1 = jsonArray.getJSONObject(0);
-            id=jsonObject1.optString("idClientes");
-            name=jsonObject1.optString("Nombre");
-            LastN=jsonObject1.optString("ApPaterno");
-            user.setIdd(jsonObject1.optString("idClientes"));
-        } catch (JSONException e) {
-            e.printStackTrace();
+            Toast.makeText(getContext(), "Se Encontro El Usuario", Toast.LENGTH_SHORT).show();
+            data=new String[]{id,name,LastN};
+            tableDynamic.addItems(data);
         }
-
-        Toast.makeText(getContext(), "Se Encontro El Usuario", Toast.LENGTH_SHORT).show();
-        data=new String[]{id,name,LastN};
-        tableDynamic.addItems(data);
-        n=101;
     }
 
     private void RecuperarDatos(){

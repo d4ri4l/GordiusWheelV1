@@ -1,13 +1,19 @@
 package com.iskandar.gordiuswheel;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonRequest;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -21,11 +27,12 @@ import com.google.maps.android.geojson.GeoJsonLineStringStyle;
 import com.google.maps.android.geojson.GeoJsonPointStyle;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 
 
-public class MapsFragment extends SupportMapFragment implements OnMapReadyCallback {
+public class MapsFragment extends SupportMapFragment implements OnMapReadyCallback, Response.Listener<JSONObject>, Response.ErrorListener {
 
     private GoogleMap mMap;
     private String urlrutas; //Almacena la URL por default de los archivos .kml
@@ -36,6 +43,8 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
     RequestQueue rq;
     JsonRequest jrq;
     GeoJsonLayer layer;
+    ConstraintLayout layout;
+
     public MapsFragment() {
         // Required empty public constructor
     }
@@ -43,7 +52,6 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -51,7 +59,7 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
         View rootView = super.onCreateView(inflater, container, savedInstanceState);
 
         getMapAsync(this);
-
+        layout=(ConstraintLayout)rootView.findViewById(R.id.escenario);
         return rootView;
     }
 
@@ -76,7 +84,19 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
         layer.setOnFeatureClickListener(new GeoJsonLayer.GeoJsonOnFeatureClickListener() {
             @Override
             public void onFeatureClick(GeoJsonFeature geoJsonFeature) {
+                SharedPreferences prefe=getActivity().getSharedPreferences("datos",Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefe.edit();
+                editor.putString("OnDisplay", "1");
+                editor.putString("NameRoute",geoJsonFeature.getProperty("Name"));
+                editor.commit();
                 Toast.makeText(getContext(), "Ruta Seleccionada: "+geoJsonFeature.getProperty("Name"), Toast.LENGTH_SHORT).show();
+                SeleccionRutaFragment fm = new SeleccionRutaFragment();
+                MapsFragment fmm = new MapsFragment();
+                FragmentManager manager = getFragmentManager();
+                manager.beginTransaction().replace(R.id.escenarioSeleccion, fm).commit();
+                manager.beginTransaction().add(R.id.escenarioMapSeleccion, fmm).commit();
+
+
             }
         });
 
@@ -101,5 +121,19 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
             }
         }
         layer.addLayerToMap();
+    }
+
+    public void closeFrag(){
+        getActivity().getFragmentManager().popBackStack();
+    }
+
+    @Override
+    public void onErrorResponse(VolleyError volleyError) {
+
+    }
+
+    @Override
+    public void onResponse(JSONObject jsonObject) {
+
     }
 }
